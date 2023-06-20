@@ -1,0 +1,20 @@
+apply plugin: 'checkstyle'
+
+checkstyleMain.source = "src/main/java"
+
+checkstyle {
+    toolVersion = '8.16'
+    configDir = file("$rootProject.projectDir/config/checkstyle")
+    reportsDir = file("$project.buildDir/reports/checkstyle")
+    sourceSets = [project.sourceSets.main]
+    checkstyleTest.enabled = false
+    maxWarnings 0
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled = false
+        html.enabled = true
+        html.stylesheet resources.text.fromFile("$rootProject.projectDir/config/checkstyle/custom-report-format.xsl")
+    }
+}

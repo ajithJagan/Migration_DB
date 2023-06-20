@@ -1,0 +1,413 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="Unnayan (generated)" id="1641378536613-1">
+        <validCheckSum>8:3736d35922add75d5b69a89fc4d7b99a</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="workflow_component"/>
+            </not>
+        </preConditions>
+        <createTable tableName="workflow_component">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="selection_component" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Soundarya (generated)" id="1641378536613-2">
+        <validCheckSum>8:5533b8cadd6d005f9c8833b3fab4b9c3</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="work_force_strength"/>
+            </not>
+        </preConditions>
+        <createTable tableName="work_force_strength">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="range" type="VARCHAR(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Soundarya (generated)" id="1641378536613-3">
+        <validCheckSum>8:fd861d8917a1bd5eea90836d5d7352ca</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="interview_stages"/>
+            </not>
+        </preConditions>
+        <createTable tableName="interview_stages">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="interview_stages" type="VARCHAR(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Soundarya (generated)" id="1641378536613-4">
+        <validCheckSum>8:24ed80bb8f6ffbace5443d4788b5fb25</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="visa_status"/>
+            </not>
+        </preConditions>
+        <createTable tableName="visa_status">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="visa_status" type="VARCHAR(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Soundarya (generated)" id="1641378536613-5">
+        <validCheckSum>8:a9c3a52540c25aad302b225b468b8c71</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="skill_owner_gender"/>
+            </not>
+        </preConditions>
+        <createTable tableName="skill_owner_gender">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="gender" type="VARCHAR(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Soundarya (generated)" id="1641378536613-6">
+        <validCheckSum>8:fe60dd9f82401f97946bdc40bac4f853</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="skill_owner_marital_status"/>
+            </not>
+        </preConditions>
+        <createTable tableName="skill_owner_marital_status">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="status" type="VARCHAR(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Soundarya (generated)" id="1641378536613-7">
+        <validCheckSum>8:c2754893126db1c72020068f747698ac</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="roles"/>
+            </not>
+        </preConditions>
+        <createTable tableName="roles">
+            <column name="roles_id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="role_description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Prabhadevi" id="1641378536613-8">
+        <validCheckSum>8:01552a1bc1611b34592d98e1e8a45745</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="years_of_exp"/>
+            </not>
+        </preConditions>
+        <createTable tableName="years_of_exp">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="owner_skill_level_id" type="INT"/>
+            <column name="experience" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Hemamalini" id="1641378536613-9">
+        <validCheckSum>8:01552a1bc1611b34592d98e1e8a45745</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="owner_skill_technologies"/>
+            </not>
+        </preConditions>
+        <createTable tableName="owner_skill_technologies">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="priority" type="INT"/>
+            <column name="technology_values" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Hemamalini" id="1641378536613-10">
+        <validCheckSum>8:8:e7ac797b8f416483fe9e00c587b41bed</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="owner_skill_level"/>
+            </not>
+        </preConditions>
+        <createTable tableName="owner_skill_level">
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="skill_level_description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Prabhadevi" id="1641378536613-11">
+        <validCheckSum>8:0ab36f4a07f76bb342f429b282683e87</validCheckSum>
+
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="owner_skill_status"/>
+            </not>
+        </preConditions>
+        <createTable tableName="owner_skill_status">
+            <column autoIncrement="true" name="skill_status_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="status_description" type="VARCHAR(255)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Soundarya" id="1641378536613-13">
+        <validCheckSum>8:0ab36f4a07f76bb342f429b282683e87</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="owner_skill_domain"/>
+            </not>
+        </preConditions>
+        <createTable tableName="owner_skill_domain">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="priority" type="INT"/>
+            <column name="domain_values" type="VARCHAR(255)">
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Sukumar (generated)" id="1641378536613-12">
+        <validCheckSum>8:fd861d8917a1bd5eea90836d5d7352ca</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="content_notifications"/>
+            </not>
+        </preConditions>
+        <createTable tableName="content_notifications">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="title" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Unnayan (generated)" id="1641378536613-14">
+        <validCheckSum>8:fd861d8917a1bd5eea90836d5d7352ca</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="owner_skill_roles"/>
+            </not>
+        </preConditions>
+        <createTable tableName="owner_skill_roles">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="roles_description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Soundarya (generated)" id="1641378536613-14">
+        <validCheckSum>8:8844f52a18e9564870c1209fcc7d49a0</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="sub_roles"/>
+            </not>
+        </preConditions>
+        <createTable tableName="sub_roles">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="sub_role_description" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="ShanmugaPriya (generated)" id="1641378536613-4">
+        <validCheckSum>8:24ed80bb8f6ffbace5443d4788b5fb25</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="seeker_module"/>
+            </not>
+        </preConditions>
+        <createTable tableName="seeker_module">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="seeker_module" type="VARCHAR(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Soundarya (generated)" id="1641378536613-16">
+        <validCheckSum>8:24ed80bb8f6ffbace5443d4788b5fb25</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="hiring_priority"/>
+            </not>
+        </preConditions>
+        <createTable tableName="hiring_priority">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="hiring_priority" type="VARCHAR(255)"/>
+        </createTable>
+
+
+    </changeSet>
+    <changeSet author="ShanmugaPriya (generated)" id="1641378536613-17">
+        <validCheckSum>8:24ed80bb8f6ffbace5443d4788b5fb25</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="invoice_status"/>
+            </not>
+        </preConditions>
+        <createTable tableName="invoice_status">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="status" type="VARCHAR(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Soundarya (generated)" id="1641378536613-19">
+        <validCheckSum>8:24ed80bb8f6ffbace5443d4788b5fb25</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="contract_status"/>
+            </not>
+        </preConditions>
+        <createTable tableName="contract_status">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="deleted_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="changed_by" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_by" type="BIGINT"/>
+            <column name="status" type="VARCHAR(255)"/>
+        </createTable>
+
+    </changeSet>
+
+    <changeSet author="Vicky (generated)" id="1641378536613-20">
+        <validCheckSum>8:24ed80bb8f6ffbace5443d4788b5fb25</validCheckSum>
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="feedback_rate"/>
+            </not>
+        </preConditions>
+        <createTable tableName="feedback_rate">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="rate" type="INT"/>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>
+

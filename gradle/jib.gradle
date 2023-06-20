@@ -1,0 +1,20 @@
+jib {
+
+    allowInsecureRegistries = true
+    from {
+        image = "azul/zulu-openjdk-alpine"
+    }
+    to {
+        allowInsecureRegistries = true
+        image = "repo.flexcub.com/repository/flexcub-docker/$project.name"
+        auth {
+            username = "admin"
+            password = "flexcubops@2022"
+        }
+        tags = ['latest']
+    }
+    container {
+        creationTime = "USE_CURRENT_TIMESTAMP"
+        jvmFlags = ['-Djava.security.egd=file:/dev/./urandom']
+    }
+}

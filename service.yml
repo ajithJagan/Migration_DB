@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: aji-api-dev-svc
+  namespace: flexcub-testing
+status:
+  loadBalancer: {}
+spec:
+  ports:
+    - name: aji-api-dev-svc
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: aji-api-dev
+  type: ClusterIP
+  sessionAffinity: None
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster

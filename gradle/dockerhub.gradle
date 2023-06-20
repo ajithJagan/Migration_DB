@@ -1,0 +1,23 @@
+jib {
+    allowInsecureRegistries = true
+    from {
+        image = "azul/zulu-openjdk-alpine:11.0.4"
+        auth {
+            username = "vasanthdev"
+            password = "k8swarm@20"
+        }
+    }
+    to {
+        allowInsecureRegistries = true
+        image = "vasanthdev/flexcub:$project.name-$project.version"
+        auth {
+            username = "vasanthdev"
+            password = "k8swarm@20"
+        }
+        tags = ['latest']
+    }
+    container {
+        creationTime = "USE_CURRENT_TIMESTAMP"
+        jvmFlags = ['-Djava.security.egd=file:/dev/./urandom', '-Dspring.profiles.active=${env}']
+    }
+}

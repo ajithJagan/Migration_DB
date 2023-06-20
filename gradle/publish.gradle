@@ -1,0 +1,22 @@
+apply plugin: 'maven-publish'
+
+publishing {
+
+    String newVersion = project.version + (project.properties.containsKey("isRelease") && project.properties["isRelease"] ? '' : '-SNAPSHOT')
+    repositories {
+        maven {
+            repository(url: "https://repo.flexcub.com/repository/maven-releases/") {
+                authentication(userName: project.nexusUser, password: project.nexusPassword)
+            }
+            pom.groupId = 'com.flexcub.resourceplanning'
+            pom.artifactId = project.name
+            pom.version = project.version
+
+            pom.project {
+                name = 'resource-planning' + project.name
+                packaging = 'jar'
+                description = 'Flexcub component' + project.name
+            }
+        }
+    }
+}

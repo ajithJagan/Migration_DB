@@ -1,0 +1,79 @@
+server:
+  servlet:
+    context-path: /resource-planning
+spring:
+  servlet:
+    multipart:
+      max-file-size: -1
+      max-request-size: -1
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_DATABASE:flex} #Change it as per your local Database name
+    username: ${DB_USERNAME:postgres} #Change it as per your local username
+    password: ${DB_PASSWORD:1234}  #Change it as per your local password
+    driverClassName: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update # When you launch the application for the first time - switch "none" at "create"
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  mail:
+    host: smtp.zeptomail.com
+    port: 465
+    username: emailapikey
+    password: wSsVR60j8hT2C655yDaoceY9nVoBBFykEEss31f0viCtHa/Kpcc/xUTNV1P0FaNJEjRhRWZHor4sn0gFhzsLit0lzwwBXCiF9mqRe1U4J3x17qnvhDzPX21ZkBuIJYIPxglpnWllEs8h+g==
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+            port: 465
+          auth: true
+          starttls:
+            enable: true
+
+flexcub:
+  superAdminMailId: superadmin@flexcub.com
+  baseurlLogin: https://devrsp.flexcub.com/login
+  baseurl: https://devrsp.flexcub.com/#/activation?v=
+  baseurlOwner: https://devrsp.flexcub.com/#/register?selection=owner&v=
+  baseURLforgotPassword: https://devrsp.flexcub.com/#/forgot-password?forgetPasswordToken=
+  baseURLHiringProcess: https://devrsp.flexcub.com/#/dashboard
+  baseURLRejectionMail: https://devrsp.flexcub.com/#/dashboard
+  baseURLScheduleMail: https://devrsp.flexcub.com/#/dashboard
+  baseURLSelectedForRoundMail: https://devrsp.flexcub.com/#/dashboard
+  baseURLNewSlotRequest: https://devrsp.flexcub.com/#/dashboard
+  baseURLSkillOwnerTimeSheet: https://devrsp.flexcub.com/#/dashboard
+  baseURLAccountExpiry: https://devrsp.flexcub.com/#/dashboard
+  baseURLReScheduleMail: https://devrsp.flexcub.com/#/dashboard
+  downloadURLOwnerResume: https://dev.flexcub.com/resource-planning/api/v1/fileDownloadResume?id= #Change it as your localhost: Port
+  downloadURLOwnerImage: https://dev.flexcub.com/resource-planning/api/v1/fileDownloadImage?id=  #Change it as your localhost: Port
+  downloadURLOwnerOtherDocument: https://dev.flexcub.com/resource-planning/api/v1/otherFilesDownload?ownerId=  #Change it as your localhost: Port
+  downloadURLOwnerFederal: https://dev.flexcub.com/resource-planning/api/v1/fileDownloadFederal?id=
+  downloadURLMSA: https://dev.flexcub.com/resource-planning/v1/skillSeekerMSAController/downloadOwnerAgreement?id=
+  downloadURLSOW: https://dev.flexcub.com/resource-planning/v1/statementOfWorkController/downloadOwnerAgreementForSow?id=
+  downloadURLPO: https://dev.flexcub.com/resource-planning/v1/purchaseOrder/downloadOwnerAgreementPO?id=
+  downloadURLTS: https://dev.flexcub.com/resource-planning/v1/OwnerSkillTimeSheet/downloadTimesheetDocuments?id=
+  downloadURLSeekerMSA: https://dev.flexcub.com/resource-planning/v1/contracts/fileDownloadMSASeeker?seekerId=
+  from:
+    email: flexcubjunior@gmail.com
+  defaultTemplateName: QbrainxSample_template_Final.xlsx
+  emailRegex: "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$"
+
+springdoc:
+  group-configs:
+    - group: com.flexcub
+      packagesToScan:
+        - "com.flexcub.resourceplanning"
+  swagger-ui:
+    path: /resource-planning-swagger-ui.html
+  api-docs:
+    path: /v3/resource-planning-api-docs
+  liquibase:
+    enabled: true

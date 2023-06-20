@@ -1,0 +1,25 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: aji-api-dev
+  namespace: flexcub-testing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aji-api-dev
+  template:
+    metadata:
+      labels:
+        app: aji-api-dev
+    spec:
+      containers:
+        - name: aji-api-dev
+          image: ajiqbrainx/db:dev
+          ports:
+            - containerPort: 80
+
+
+
+
+            

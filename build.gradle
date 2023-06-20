@@ -1,0 +1,127 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id "com.google.cloud.tools.jib" version "3.2.1"
+    id 'java'
+    id 'jacoco'
+}
+
+group = 'com.flexcub.resourceplanning'
+version = '1'
+
+apply from: "./gradle/dockerhub.gradle"
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+//    maven {
+//        url "https://repo.flexcub.com/repository/maven-releases/"
+//    }
+    maven {
+        url "https://repo.e-iceblue.com/nexus/content/groups/public/"
+    }
+}
+
+dependencies {
+
+    dependencies {
+        implementation 'commons-io:commons-io:2.11.0'
+    }
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.3'
+
+
+    implementation 'fr.opensagres.xdocreport:fr.opensagres.poi.xwpf.converter.pdf:2.0.4'
+    //getting from flexcub nexus repo
+//    implementation group: 'com.flexcub.common', name: 'common-bom', version: '4.0'
+
+    // https://mvnrepository.com/artifact/io.rest-assured/json-path
+    testImplementation group: 'io.rest-assured', name: 'json-path', version: '5.1.1'
+
+    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.1.1'
+
+    // https://mvnrepository.com/artifact/io.ipinfo/ipinfo-api
+    implementation group: 'io.ipinfo', name: 'ipinfo-api', version: '2.0'
+
+    // https://mvnrepository.com/artifact/org.asynchttpclient/async-http-client
+    implementation group: 'org.asynchttpclient', name: 'async-http-client', version: '2.0.2'
+
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation group: 'org.json', name: 'json', version: '20220320'
+
+    implementation group: 'com.github.ben-manes.caffeine', name: 'caffeine', version: '3.1.1'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.6'
+    implementation 'org.springframework.boot:spring-boot-starter-security:2.6.7'
+    implementation 'org.springframework.boot:spring-boot-starter-mail:2.6.7'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.6.7'
+    runtimeOnly 'org.postgresql:postgresql'
+
+    // Apache POI Core library
+    implementation 'org.apache.poi:poi:5.2.2'
+
+    // Apache POI OOXML library
+    implementation 'org.apache.poi:poi-ooxml:5.2.2'
+
+    // Apache PDFBox
+    implementation group: 'e-iceblue', name: 'spire.doc', version: '11.3.11'
+//    implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '3.0.0-RC1'
+
+    implementation('org.apache.commons:commons-lang3:3.12.0')
+    implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.13.0'
+
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    testImplementation ("org.springframework.boot:spring-boot-starter-test"){
+        exclude group: "com.vaadin.external.google", module: "android-json"
+    }
+    testImplementation 'org.apache.httpcomponents:httpclient'
+    implementation 'com.codahale:aes-gcm-siv:0.4.3'
+    implementation 'commons-codec:commons-codec:1.15'
+    implementation 'com.google.code.spring-crypto-utils:spring-crypto-utils:1.4.0'
+    implementation group: 'org.apache.poi', name: 'poi', version: '5.2.2'
+    implementation group: 'net.sf.supercsv', name: 'super-csv', version: '2.4.0'
+    implementation group: 'org.apache.commons', name: 'commons-csv', version: '1.5'
+
+    implementation 'org.apache.pdfbox:pdfbox:2.0.27'
+    // https://mvnrepository.com/artifact/org.modelmapper/modelmapper
+    implementation 'org.modelmapper:modelmapper:3.1.1'
+
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.0-RC1'
+
+    implementation group: 'io.rest-assured', name: 'xml-path', version: '5.1.1'
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.0-RC1'
+
+    // https://mvnrepository.com/artifact/junit/junit
+    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+
+    //    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'org.spockframework', name: 'spock-spring', version: '2.2-M1-groovy-4.0'
+
+    implementation group: 'io.rest-assured', name: 'xml-path', version: '5.1.1'
+    implementation 'junit:junit:4.13.2'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.0-RC1'
+    implementation group: 'io.rest-assured', name: 'xml-path', version: '5.1.1'
+
+    implementation 'org.modelmapper:modelmapper:3.1.0'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
