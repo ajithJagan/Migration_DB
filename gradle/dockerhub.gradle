@@ -3,16 +3,16 @@ jib {
     from {
         image = "azul/zulu-openjdk-alpine:11.0.4"
         auth {
-            username = "vasanthdev"
-            password = "k8swarm@20"
+            username = "ajiqbrainx"
+            password = "Ajiashok@2530"
         }
     }
     to {
         allowInsecureRegistries = true
-        image = "vasanthdev/flexcub:$project.name-$project.version"
+        image = "ajiqbrainx/db:$project.name-$project.version"
         auth {
-            username = "vasanthdev"
-            password = "k8swarm@20"
+            username = "ajiqbrainx"
+            password = "Ajiashok@2530"
         }
         tags = ['latest']
     }
